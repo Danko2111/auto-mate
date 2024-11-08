@@ -7,11 +7,10 @@ export async function connectToDatabase() {
     return;
   }
 
+  console.log(process.env.MONGODB_URI);
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URI);
     isConnected = true;
     console.log("Connected to MongoDb");
   } catch (error) {
